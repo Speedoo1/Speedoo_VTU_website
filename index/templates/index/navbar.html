@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html lang ="en">
+<head>
+<meta charset= "UTF-8">
+<meta name="viewport" content ="width = device-width,initial-scale=1.0">
+<meta http-equiv ="X-UA-Compatible"  content ="ie=edge">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'index/style.css' %}">
+
+<!-- Latest compiled JavaScript -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<meta http-equiv ="X-UA-Compatible"  content ="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<title> title1 </title>
+</head>
+<body class="airtime">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand speedoo" href="#">Speedoo connect</a>
+          </div>
+          <div class="collapse navbar-collapse  in navbar-inverse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-inverse ">
+              <li class="navbars-nav"><a href="{% url 'index:index'%}" class="speedoo">Home</a></li>
+             <li {%block airtime%}class="navbars-nav"{%endblock%}><a href="{% url 'index:airtime'%}" class="speedoo">BUY AIRTIME</a></li>
+              <li {%block data%} class="navbars-nav"{%endblock%}><a href="{% url 'index:data' %}" class="speedoo">BUY DATA BUNDLE</a></li>
+              <li {%block cable%}class="navbars-nav"{%endblock%}><a href="{%url 'index:cable'%}" class="speedoo">CABLE TV SUBSCRIPTION</a></li>
+              <li {% block electric%} class="navbars-nav"{%endblock%}><a href="{% url 'index:electric'%}" class="speedoo">ELECTRICITY PAYMENT</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle speedoo" data-toggle="dropdown" href="#" >MORE OPTIONS
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu moreu">
+                   <li class="more"><a href="{% url 'index:print'%}">PRINT RECHARGE CARD</a></li>
+                  <li class="more"><a href="{% url 'index:waec'%}">BUY WAEC  e-PIN </a></li>
+                      <li class="more"><a href="{% url 'index:profile'%}">PROFILE</a></li>
+                     <li class="more"><a href="{% url 'index:fund'%}">FUND WALLET</a></li>
+                    <li class="more"><a href="{% url 'index:history'%}">Transaction History </a></li>
+                  <li class="more"><a href="#">CONTACT US </a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+               {%  if request.user.is_authenticated %}
+                {{info.username}}
+
+                {%else%}
+                <li><a href="{% url 'index:create'%}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                {% endif %}
+                {%  if request.user.is_authenticated %}
+                <li><a href="{% url 'index:logout'%}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                {%else%}
+              <li><a href="{% url 'index:loging'%}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {%endif%}
+            </ul>
+          </div>
+        </div>
+
+      </nav>
+
+
+
+{% block body %}
+{% endblock %}
+</body>
+</html>

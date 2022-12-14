@@ -1,0 +1,111 @@
+
+{% extends "index/navbar.html" %}
+{%block airtime%}class="navbars-nav"{%endblock%}
+{%block data%}class="navbars-nav"{%endblock%}
+        {% block body %}
+<script src="https://checkout.flutterwave.com/v3.js"></script>
+          <div class="container  airtime-color shadow">
+              <h3 class="buy">Confirm Payment</h3>
+              <hr>
+                <br><br>
+              <div class="container">
+
+                  <h6 class="buy">You are about to recharge your wallet with the total sum of {{wallet.pending_wallet}} naira <br/>kindly press the below
+                  button to continue with your transaction
+
+
+              </h6>
+              </div>
+
+
+                     <br><br> <br><br> <br><br>
+                <button class="registerbtn" onclick="makePayment()">Continue Payment</button>
+
+              <br><br><br><br><br>
+              </div>
+
+
+
+
+
+
+
+          </div>
+
+
+
+
+ <script >
+
+    if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
+    }
+
+
+
+        <!--if(window.history.replaceState){-->
+        <!--    window.history.replaceState(null,null,window.location.href);-->
+        <!--    }-->
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+document.onkeypress = function (event) {
+event = (event || window.event);
+if (event.keyCode == 123) {
+return false;
+}
+}
+document.onmousedown = function (event) {
+event = (event || window.event);
+if (event.keyCode == 123) {
+return false;
+}
+}
+document.onkeydown = function (event) {
+event = (event || window.event);
+if (event.keyCode == 123) {
+return false;
+}
+}
+
+
+
+jQuery(document).ready(function($){
+$(document).keydown(function(event) {
+var pressedKey = String.fromCharCode(event.keyCode).toLowerCase();
+
+if (event.ctrlKey && (pressedKey == "c" || pressedKey == "u")) {
+//alert('Sorry, This Functionality Has Been Disabled!');
+//disable key press porcessing
+return false;
+}
+});
+});
+
+         function makePayment() {
+    FlutterwaveCheckout({
+      public_key: "FLWPUBK_TEST-81e954c331f3cb6649a8153dbfee2d75-X",
+      tx_ref: "titanic-48981487343MDI0NzMx",
+      amount: {{wallet.pending_wallet}},
+      currency: "NGN",
+      payment_options: "card, banktransfer, ussd",
+      redirect_url: "{% url 'index:payment'%}",
+      meta: {
+        consumer_id: 23,
+        consumer_mac: "92a3-912ba-1192a",
+      },
+      customer: {
+        email: "{{wallet.email}}",
+        phone_number: '{{wallet.phone_number}}',
+        name: '{{wallet.username}}',
+      },
+      customizations: {
+        title: "SpeedooConnect",
+        description: "Fund Your Wallet",
+        logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
+      },
+    });
+  }
+  </script>
+
+
+{% endblock %}

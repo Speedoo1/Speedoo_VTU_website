@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html lang ="en">
+<head>
+<meta charset= "UTF-8">
+<meta name="viewport" content ="width = device-width,initial-scale=1.0">
+<meta http-equiv ="X-UA-Compatible"  content ="ie=edge">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{% static 'index/style.css' %}">
+<meta http-equiv ="X-UA-Compatible"  content ="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<title> title1 </title>
+</head>
+<body class="airtime">
+<!--<div class="wrapper">-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand speedoo" href="#">Speedoo connect</a>
+          </div>
+        <div class="collapse navbar-collapse navbar-inverse in" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="navbars-nav"><a href="{% url 'index:index'%}" class="speedoo">Home</a></li>
+             <li {%block airtime%}class="navbars-nav"{%endblock%}><a href="{% url 'index:airtime'%}" class="speedoo">BUY AIRTIME</a></li>
+              <li {%block data%} class="navbars-nav"{%endblock%}><a href="{% url 'index:data' %}" class="speedoo">BUY DATA BUNDLE</a></li>
+              <li {%block cable%}class="navbars-nav"{%endblock%}><a href="{%url 'index:cable'%}" class="speedoo">CABLE TV SUBSCRIPTION</a></li>
+              <li {% block electric%} class="navbars-nav"{%endblock%}><a href="{% url 'index:electric'%}" class="speedoo">ELECTRICITY PAYMENT</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle speedoo" data-toggle="dropdown" href="#" >MORE OPTIONS
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu moreu">
+                   <li class="more"><a href="{% url 'index:print'%}">PRINT RECHARGE CARD</a></li>
+                  <li class="more"><a href="{% url 'index:waec'%}">BUY WAEC  e-PIN </a></li>
+                      <li class="more"><a href="{% url 'index:profile'%}">PROFILE</a></li>
+                     <li class="more"><a href="{% url 'index:fund'%}">FUND WALLET</a></li>
+                    <li class="more"><a href="{% url 'index:history'%}">Transaction History </a></li>
+                  <li class="more"><a href="#">CONTACT US </a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+               {%  if request.user.is_authenticated %}
+                {{info.username}}
+
+                {%else%}
+                <li><a href="{% url 'index:create'%}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                {% endif %}
+                {%  if request.user.is_authenticated %}
+                <li><a href="{% url 'index:logout'%}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                {%else%}
+              <li><a href="{% url 'index:loging'%}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {%endif%}
+            </ul>
+          </div>
+        </div>
+
+      </nav>
+<!--        <div class="container">-->
+<!--         <div class="row">-->
+<!--          <div class="col-sm-12 col-lg-6 col-md-6">-->
+<!--            <p class="header">Welcome to <span class="speedoo">SPEEDOO CONNECT</span></p>-->
+<!--            <p>we offer you Data bundle, Airtime, eletricity payment, airtime printing and W recharge pin at a very low price</p><br><br>-->
+<!--            <a href="" class="wrapper_link">Sign up</a>&nbsp; &nbsp; &nbsp; &nbsp;  <a href="" class="wrapper_link">Register</a>-->
+
+
+<!--          </div>-->
+<!--              <div class="col-sm-12 col-lg-6 col-md-6">-->
+<!--           <img src="{% static 'index/images/images__12__copy_800x864-removebg-preview.png' %}" class="img-responsive" alt="">-->
+
+<!--          </div>-->
+<!--         </div>-->
+
+
+
+<!--        </div>-->
+
+<!--</div>-->
+
+
+<!--          -->
+<!--          -->
+<!--    -->
+<!--          </div>-->
+<!--    -->
+<!--          </div>-->
+<!--      </div>-->
+
+      <div class="data container">
+        <h4>Electronic Top Up</h4>
+        <p class="datap"> Electronic vending of data  and airtime</p>
+        <br/><br/><br/><br/>
+
+        <div class="row">
+          <div class="col-sm-12 col-lg-4 col-md-6 elec">
+            <img src="{% static 'index/images/electricity_copy_800x864.jpg' %}" class="img-responsive">
+          
+            <div class="under ">
+              <p  class="underp"> PAY ELECTRICITY BILL</p>
+              <p>Pay your eletricity bill</p><br>
+              <a href="{% url 'index:electric'%}" class="wrapper_link">Buy Now</a>
+            </div>
+        </div>
+          <div class="col-sm-12 col-lg-4 col-md-6 elec">
+            <img src="{% static 'index/images/images (10)_copy_800x864.jpeg' %}" class="img-responsive">
+          
+              <div class="under ">
+                <P class="underp">CABLE TV SUB</P>
+                <p>Enjoy huge amount of Airtime</p><br>
+                <a href="" class="wrapper_link">Buy Now</a>
+              </div>
+          </div>
+
+          <div class="col-sm-12 col-lg-4 col-md-6 elec">
+            <img src="{% static 'index/images/images (8)_copy_800x864.jpeg'%}" height="350" class="img-responsive">
+           
+            <div class="under ">
+              <P class="underp">Buy Data BUNDLE</P>
+              <p>Enjoy huge amount of Airtime</p><br>
+              <a href="{% url 'index:data' %}" class="wrapper_link">Buy Now</a>
+            </div>
+            </div>
+            <div class="col-sm-12 col-lg-4 col-md-6 elec">
+              <img src="{%static 'index/images/images (9)_copy_800x864.jpeg'%}" height="150px" class="img-responsive">
+              <div class="under ">
+             <P class="underp">BUY VTU AIRTIME</P>
+                <p>Enjoy huge amount of Airtime</p><br>
+                <a href="{% url 'index:airtime'%}" class="wrapper_link">Buy Now</a>
+              </div>
+             
+              </div>
+
+              <div class="col-sm-12 col-lg-4 col-md-6 elec">
+                <img src="{% static 'index/images/images (16)_copy_800x864.jpeg' %}" class="img-responsive">
+                <div class="under rounded-bottom ">
+               <P class="underp">PRINT RECHARGE CARD</P>
+                  <p>Print Recharge card at the comfort of your home</p><br>
+                  <a href="{%url 'index:print'%}" class="wrapper_link">Buy Now</a>
+                </div>
+               
+                </div>
+           <div class="col-sm-12 col-lg-4 col-md-6 elec">
+              <img src="{%static 'index/images/images (15)_copy_800x864.jpeg'%}" height="150px" class="img-responsive">
+              <div class="under ">
+             <P class="underp">BUY WAEC E-PIN</P>
+                <p>Waec e-pin at affordable price</p><br>
+                <a href="{% url 'index:waec'%}" class="wrapper_link">Buy Now</a>
+              </div>
+
+              </div>
+                
+        </div>
+
+
+      </div>
+<!-- customer service section -->
+<div class="customer">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm-6 col-lg-6 col-md-6">
+        <img src="{% static 'index/images/images__11__copy_800x864-removebg-preview.png' %}" class="img-responsive"/>
+      </div>
+      
+      <div class="col-sm-6 col-lg-6 col-md-6">
+       <p class="customerp">CUSTOMER SERVICE</p>
+
+          <h6>Make your conplain or enquire here</h6>
+
+       <!-- customer care service form -->
+      <div class="form-div">
+        <form> 
+          <input type="email" class="form-control,form-divinput" required placeholder="Enter your Emails"/>
+          <input type="text" class="form-control" required placeholder="Enter your name"/>
+          <textarea cols="30" rows="5" class="stextarea " placeholder="Enter your message here"></textarea>
+          <button type="submit" class="registerbtn">Send</button>
+
+          
+
+
+
+        </form>
+
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

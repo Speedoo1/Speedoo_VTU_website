@@ -1,0 +1,94 @@
+{% extends 'index/navbar.html'%}
+{%block airtime%}class="navbars-nav"{%endblock%}
+{%block data%}class="navbars-nav"{%endblock%}
+
+{%block body %}
+          <div class="container  airtime-color shadow">
+
+            <form action="{% url 'index:loging'%}" method="post"  autocomplete="off">
+                {%csrf_token%}
+
+
+              <div class="container">
+
+
+
+
+                <h3 class="buy">LOGIN</h3><br>
+
+
+                <hr><br>
+                  {% for message in messages%}
+
+                   <div class="alert {{message.tags}} alert-dismissible" role="alert">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="True">&times;</span>
+                     </button>
+                     &nbsp;{{message}}
+
+                 </div>
+                  {%endfor%}
+
+                <label ><b>Email:</b></label>
+                <input type="email" autocomplete="off" placeholder="Enter your Email" name="email" id="email"  required>
+
+                <label ><b>Password:</b></label>
+                <input type="password" autocomplete="off" placeholder="Enter your Password"  name="password" id="password" required><br/>
+
+                <hr>
+
+
+                  <a href="#">Forgo</a>
+                <button type="submit" class="registerbtn">Login</button>
+              </div>
+
+
+            </form><br/>
+            <div class="container">
+               <p>Didn't have an account <a href="{% url 'index:create' %}">Sign Up</a> .</p>
+
+            </div>
+              <br><br>
+
+
+
+
+          </div>
+
+
+
+
+
+
+<script type="text/javascript">
+   if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
+    }
+    $(document).ready(function(){
+    //on submit  method start here
+     $(document).on("submit",'#login',function(e){
+    e.preventDefault();
+    $.ajax({
+       type:'GET',
+       url:"{% url 'index:loging'%}",
+       data:{
+          username:$('#username').val(),
+          password:$('#password').val(),
+          csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+       },
+       success:function(data){
+       console.log(data)
+       },
+       error:function(data){
+       }
+
+    })
+    })
+
+
+    // and it ends here
+
+    })
+
+</script>
+{%endblock%}

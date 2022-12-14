@@ -1,0 +1,215 @@
+
+{% extends 'index/navbar.html' %}
+{%block airtime%}class="navbars-nav"{%endblock%}
+{%block data%}class="active"{%endblock%}
+
+{% block body %}
+          <div class="container  airtime-color shadow">
+           
+            <form action="{% url 'index:data' %}" method="post">
+                {% csrf_token %}
+              <div class="container">
+                <h3 class="buy">BUY DATABUNDLE</h3>
+                
+                <hr><br>
+                   {% for message in messages%}
+
+                   <div class="alert {{message.tags}} alert-dismissible" role="alert">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="True">&times;</span>
+                     </button>
+                     &nbsp;{{message}}
+
+                 </div>
+                  {%endfor%}
+                <label ><b>Wallet Balance</b></label>
+                <select name="" id="" style="display: block; margin-top:12px ;">
+                  <option>{{wallet.wallet}}</option>
+                </select><br/>
+                <label ><b>Number</b></label>
+                <input type="number" placeholder="Enter phone number" name="number" id="email"  required><br/><br/>
+                <span>Choose your network</span>  
+                <select name="network" id="net" onchange="changenetwok();" style="display: block; margin-top:12px ;">
+                 <option value="">--SELECT--</option>
+                  <option value="01">MTN</option>
+                    <option value="02">GLO</option>
+                    <option value="03">9MOBILE</option>
+                    <option value="04">AIRTEL</option>
+  
+                  </select><br><br/>
+            
+                <label ><b>DataBundle plan</b></label>
+                <!-- select -->
+                <select name="" id="select" style="display: block; margin-top:12px ;">
+                    <option value="">--SELECT--</option>
+                    
+                    </select>
+                <!-- mtn -->
+
+
+               <select name="plan" id="m" style="display: block; margin-top:12px ;">
+
+                   {% for m in mtn %}
+                    <option value="{{m.value}}">{{m.datagb}}/N{{m.dataprice}}</option>
+                   {%endfor%}
+
+                   </select>
+                    <!-- glo -->
+                    <select name="plan"id="g" style="display: block; margin-top:12px ;">
+
+                        {% for g in glo %}
+                        <option value="{{g.value}}">{{g.datagb}}/N{{g.dataprice}}</option>
+                        {%endfor%}
+
+                        </select>
+
+                        <!-- 9mobile -->
+                        <select name="plan" id="e"  style="display: block; margin-top:12px ;">
+
+                            {% for m in mobile9 %}
+                            <option value="{{m.value}}">{{m.datagb}}/N{{m.dataprice}}</option>
+                            {%endfor%}
+
+            
+                            </select>
+
+                            <!-- airtel -->
+
+                            <select name="plan"  id="a" >
+
+                                {% for a in airtel %}
+                                <option value="{{a.value}}">{{a.datagb}}/{{a.dataprice}}</option>
+                                {%endfor%}
+
+                                </select>
+                  <br/>
+                 
+               
+             
+                <hr>
+               
+                <button type="submit" class="registerbtn">BUY DATAPLAN</button>
+              </div>
+              
+              
+            </form>
+            
+            
+           
+
+          </div>
+
+          
+
+
+          <script>
+
+           if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
+    }
+            var sele=document.getElementById('select')
+          var airtel=document.getElementById('a').style.display='none';
+           var mtn =document.getElementById('m').style.display='none';
+          var glo=document.getElementById('g').style.display='none';
+          var etisalat=document.getElementById('e').style.display='none';
+        function changenetwok(){
+              var network=document.getElementById('net').value ;
+              
+            
+          switch (network) {
+             case '01':
+            var glo=document.getElementById('g').style.display='none';
+
+            var sele=document.getElementById('select').style.display='none'
+            var airtel=document.getElementById('a').style.display='none';
+            var mtn =document.getElementById('m').style.display='block';
+             var etisalat=document.getElementById('e').style.display='none';
+
+            
+            var etisalat=document.getElementById('e').name="";
+             var glo=document.getElementById('g').name='';
+             var airtel=document.getElementById('a').name=''
+            var mtn =document.getElementById('m').name="plan";
+
+
+
+          
+              break;
+              case '02':
+               
+                var glo=document.getElementById('g').style.display='block';
+                var sele=document.getElementById('select').style.display='none'
+                var airtel=document.getElementById('a').style.display='none';
+                 var mtn =document.getElementById('m').style.display='none';
+         
+                var etisalat=document.getElementById('e').style.display='none';
+
+                 var etisalat=document.getElementById('e').name="";
+             var glo=document.getElementById('g').name='plan';
+             var airtel=document.getElementById('a').name=''
+            var mtn =document.getElementById('m').name="";
+
+                break;
+          case '03':
+                
+                var glo=document.getElementById('g').style.display='none';
+                var sele=document.getElementById('select').style.display='none'
+          var airtel=document.getElementById('a').style.display='none';
+          var mtn =document.getElementById('m').style.display='none';
+
+
+         
+          var etisalat=document.getElementById('e').style.display='block';
+
+           var etisalat=document.getElementById('e').name="plan";
+             var glo=document.getElementById('g').name='';
+             var airtel=document.getElementById('a').name=''
+            var mtn =document.getElementById('m').name="";
+
+          break;
+
+          case '04':
+               
+                var glo=document.getElementById('g').style.display='none';
+                var sele=document.getElementById('select').style.display='none'
+                var airtel=document.getElementById('a').style.display='block';
+                var mtn =document.getElementById('m').style.display='none';
+         
+          var etisalat=document.getElementById('e').style.display='none';
+           var etisalat=document.getElementById('e').name="";
+             var glo=document.getElementById('g').name='';
+             var airtel=document.getElementById('a').name='plan'
+            var mtn =document.getElementById('m').name="";
+
+          break;
+        
+        
+         
+
+             // airtel.style.display='none'
+             //  mtn.style.display='block';
+             // gl0.style.display='block';
+            // sele.style.display='none'
+            // etisalat.style.display='none';
+          
+            default:
+            var glo=document.getElementById('g').style.display='none';
+              var sele=document.getElementById('select').style.display='block'
+              var airtel=document.getElementById('a').style.display='none';
+                var mtn =document.getElementById('m').style.display='none';
+
+          var etisalat=document.getElementById('e').style.display='none';
+
+
+              break;
+          }
+             
+            
+         
+            }
+           
+            // show()
+            changenetwok();
+          </script>  
+     
+{% endblock %}

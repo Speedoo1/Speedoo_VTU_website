@@ -1,0 +1,77 @@
+
+{% extends "index/navbar.html" %}
+{%block airtime%}class="active"{%endblock%}
+
+        {% block body %}
+          <div class="container  airtime-color shadow">
+
+            <form action="{% url 'index:airtime'%}" method="post">
+              {% csrf_token %}
+              <div class="container">
+
+
+
+
+                <h3 class="buy">BUY AIRTIME</h3><br>
+
+                
+                <hr><br>
+                  {% for message in messages%}
+
+                   <div class="alert {{message.tags}} alert-dismissible" role="alert">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="True">&times;</span>
+                     </button>
+                     {{message}}
+                   </div>
+
+                  {%endfor%}
+              <label ><b>Wallet Balance</b></label>
+                <select name="" id="" style="display: block; margin-top:12px ;">
+                  <option>{{wallet.wallet}}</option>
+                </select><br/>
+                <label ><b>Number</b></label>
+                <input type="number" placeholder="Enter phone number" name="number" id="email"  required>
+            
+                <label for="amount"><b>Amount (#100/#50,000)</b></label>
+                <input type="number" placeholder="Enter amount" min="100" max="50000" name="amount" id="amount" required>
+            
+               
+              <span>Choose your network</span>  
+              <select name="network" id="net" style="display: block; margin-top:12px ;">
+                 <option value="">--SELECT--</option>
+                <option value="01">MTN</option>
+                  <option value="02">GLO</option>
+                  <option value="03">9mobile</option>
+                  <option value="04">Airtel</option>
+
+                </select><br/>
+
+
+                <hr>
+                <p>kindly check the detail again before clicking on the the send button.</p>
+
+
+
+                <button type="submit" class="registerbtn">Buy Airtime</button>
+              </div>
+              
+              
+            </form>
+            
+            
+           
+
+          </div>
+
+          
+
+
+  <script>
+
+    if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
+    }
+
+  </script>
+{% endblock %}

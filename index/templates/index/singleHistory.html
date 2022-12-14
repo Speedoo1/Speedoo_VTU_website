@@ -1,0 +1,90 @@
+{% extends 'index/navbar.html' %}
+{%block airtime%}class="navbars-nav"{%endblock%}
+{%block data%}class="navbars-nav"{%endblock%}
+{% block body %}
+          <div class="container  airtime-color shadow">
+
+            <form  >
+
+              <div class="container">
+
+
+
+
+                <h3 class="buy">Transaction Status</h3><br>
+
+
+                <hr><br>
+                  {% for message in messages%}
+
+                   <div class="alert {{message.tags}} alert-dismissible" role="alert">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="True">&times;</span>
+                     </button>
+                     {{message}}
+                   </div>
+
+                  {%endfor%}
+
+                <label><h5><b>OrderId:</b></h5></label>&nbsp; <label ><h5>{{orderid}}</h5></label><br>
+                <label><h5><b>StatusCode:</b></h5></label>&nbsp; <label ><h5>{{statuscode}}</h5></label><br>
+                 <label><h5><b>Status:</b></h5></label>&nbsp; <label ><h5>{{status}}</h5></label><br>
+                  {% if history.phonenumber %}
+                   <label><h5><b>PhoneNumber:</b></h5></label>&nbsp; <label ><h5>{{history.phonenumber}}</h5></label><br>
+                  {%endif%}
+                  {% if history.transaction_type %}
+                  <label><h5><b>TransactionType:</b></h5></label>&nbsp; <label ><h5>{{ history.transaction_type}}</h5></label><br>
+
+                   {%endif%}
+                   {% if history.meternumber %}
+                  <label><h5><b>MeterNumber:</b></h5></label>&nbsp; <label ><h5>{{history.meternumber}}</h5></label><br>
+                   {%endif%}
+                   {% if history.metertype %}
+                  <label><h5><b>MeterType</b></h5></label>&nbsp; <label ><h5>{{history.metertype}}</h5></label><br>
+                  {%endif%}
+                   {% if history.network %}
+                   <label><h5><b>Network:</b></h5></label>&nbsp; <label ><h5>{{history.network}}</h5></label><br>
+                   {% endif%}
+                  <label><h5><b>Date:</b></h5></label>&nbsp; <label ><h5>{{history.date}}</h5></label><br>
+                  {% if history.DataSize %}
+                  <label><h5><b>DataSize:</b></h5></label>&nbsp; <label ><h5>{{history.DataSize}}</h5></label><br>
+                  {%endif %}
+                   {% if history.metertoken %}
+                  <label><h5><b>MeterToken:</b></h5></label>&nbsp; <label ><h5>{{history.metertoken}}</h5></label><br>
+                  {%endif %}
+                     {% if history.amount %}
+                   <label><h5><b>Amount:</b></h5></label>&nbsp; <label ><h5>{{history.amount}}</h5></label><br>
+                  {%endif%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+
+
+            </form>
+
+
+
+
+          </div>
+
+
+
+
+  <script>
+
+    if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
+    }
+  </script>
+{% endblock %}

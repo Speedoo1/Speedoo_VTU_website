@@ -1,0 +1,211 @@
+
+{% extends 'index/navbar.html' %}
+
+{%block cable%}class="active"{%endblock%}
+
+{% block body %}
+          <div class="container  airtime-color shadow">
+           
+            <form action="{% url 'index:data' %}" method="post">
+                {% csrf_token %}
+              <div class="container">
+                <h3 class="buy">CABLE TV SUBCRIPTION</h3>
+                
+                <hr><br>
+                   {% for message in messages%}
+
+                   <div class="alert {{message.tags}} alert-dismissible" role="alert">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="True">&times;</span>
+                     </button>
+                     &nbsp;{{message}}
+
+                 </div>
+                  {%endfor%}
+                <label ><b>Wallet Balance</b></label>
+                <select name="" id="" style="display: block; margin-top:12px ;">
+                  <option>{{wallet.wallet}}</option>
+                </select><br/>
+                <label ><b>Number</b></label>
+                <input type="number" placeholder="Enter phone number" name="number" id="email"  required><br/><br/>
+                <span>Cable Tv</span>
+                <select name="cable" id="cable" onchange="changenetwok();" style="display: block; margin-top:12px ;">
+                 <option value="">--SELECT--</option>
+                  <option value="dstv">Dstv</option>
+                    <option value="gotv">GOtv</option>
+                    <option value="startimes">Startimes</option>
+
+  
+                  </select><br><br/>
+            
+                <label ><b>Cable Tv Packages</b></label>
+                <!-- select -->
+                <select name="" id="select" style="display: block; margin-top:12px ;">
+                    <option value="">--SELECT--</option>
+                    
+                    </select>
+                <!-- dstv -->
+                <select name="plan" id="dstv" style="display: block; margin-top:12px ;">
+
+                     <option value="dstv-padi">DStv Padi N2,200</option>
+                    <option value="dstv-yanga">DStv Yanga N3000</option>
+                      <option value="dstv-confam">DStv Confam N5,350</option>
+                      <option value="dstv79">DStv Compact N9,100</option>
+                      <option value="dstv3">DStv Premium N21,300</option>
+                      <option value="dstv6">DStv Asia N7,150</option>
+                      <option value="dstv7">DStv Compact Plus N14,300</option>
+                      <option value="dstv9">DStv Premium-French N29,500</option>
+                     <option value="dstv10">DStv Premium-Asia N23,700</option>
+                    <option value="confam-extra">DStv Confam+ExtraView N8,300</option>
+                     <option value="yanga-extra">DStv Yanga+ ExtraView N5100</option>
+
+
+                     
+                     
+    
+                    </select>
+                    <!-- gotv -->
+                    <select name="plan"id="gotv" style="display: block; margin-top:12px ;">
+                        <option value="gotv-max">GOtv Max N4,200</option>
+                        <option value="gotv-jolli">GOtv jolli N2900</option>
+                          <option value="gotv-jinja">GOtv jinja N2000</option>
+                          <option value="gotv-smallie">GOtv Smallie N1000</option>
+                          <option value="gotv-smallie-3months">GOtv Smallie-quarterly N2,500</option>
+                          <option value="gotv-smallie-1year">GOtv Smallie-yearly N7,000</option>
+                          <option value="gotv-supa">GOtv Supa-monthly N5,500</option>
+
+        
+                        </select>
+
+                        <!-- startimes -->
+                        <select name="plan" id="startimes"  style="display: block; margin-top:12px ;">
+                            <option value="nova">Nova 1 Month N1000</option>
+                            <option value="basic">Basic (Antenna) 1 month N1900</option>
+                              <option value="smart">Smart(Dish) 1 Month N2,700</option>
+                              <option value="classic">Classic (Antenna) 1 Month N2,800</option>
+                              <option value="super">Super (Dish) 4,900</option>
+
+                            </select>
+
+                                            <br/>
+                 
+               
+             
+                <hr>
+               
+                <button type="submit" class="registerbtn">PAY NOW</button>
+              </div>
+              
+              
+            </form>
+            
+            
+           
+
+          </div>
+
+          
+
+
+          <script>
+
+           if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
+    }
+            var sele=document.getElementById('select')
+          var dstv=document.getElementById('dstv').style.display='none';
+           var gotv =document.getElementById('gotv').style.display='none';
+          var startimes=document.getElementById('startimes').style.display='none';
+
+        function changenetwok(){
+              var cable=document.getElementById('cable').value ;
+              
+            
+          switch (cable) {
+             case 'dstv':
+            var go=document.getElementById('gotv').style.display='none';
+
+            var sele=document.getElementById('select').style.display='none'
+            var startimes=document.getElementById('startimes').style.display='none';
+            var dstv =document.getElementById('dstv').style.display='block';
+
+            
+            var gotv=document.getElementById('e').name="";
+             var startimes=document.getElementById('g').name='';
+
+            var dstv =document.getElementById('dstv').name="plan";
+
+
+
+          
+              break;
+              case 'gotv':
+               
+                var gotv=document.getElementById('gotv').style.display='block';
+                var sele=document.getElementById('select').style.display='none'
+                var dstv=document.getElementById('dstv').style.display='none';
+                 var startimes =document.getElementById('startimes').style.display='none';
+         
+
+                 var dstv=document.getElementById('dstv').name="";
+             var gotv=document.getElementById('gotv').name='plan';
+             var startimes=document.getElementById('startimes').name=''
+
+                break;
+          case '03':
+                
+                var glo=document.getElementById('g').style.display='none';
+                var sele=document.getElementById('select').style.display='none'
+          var airtel=document.getElementById('a').style.display='none';
+          var mtn =document.getElementById('m').style.display='none';
+
+
+         
+          var etisalat=document.getElementById('e').style.display='block';
+
+           var etisalat=document.getElementById('e').name="plan";
+             var glo=document.getElementById('g').name='';
+             var airtel=document.getElementById('a').name=''
+            var mtn =document.getElementById('m').name="";
+
+          break;
+
+          case 'startimes':
+               
+                var gotv=document.getElementById('gotv').style.display='none';
+                var sele=document.getElementById('select').style.display='none'
+                var startimes=document.getElementById('startimes').style.display='block';
+                var dstv =document.getElementById('dstv').style.display='none';
+         
+
+           var dstv=document.getElementById('dstv').name="";
+             var gotv=document.getElementById('gotv').name='';
+             var startimes=document.getElementById('startimes').name='plan'
+
+          break;
+        
+        
+         
+
+
+          
+            default:
+            var gotv=document.getElementById('gotv').style.display='none';
+              var sele=document.getElementById('select').style.display='block'
+              var dstv=document.getElementById('dstv').style.display='none';
+                var startimes =document.getElementById('startimes').style.display='none';
+
+
+
+              break;
+          }
+             
+            
+         
+            }
+           
+            // show()
+            changenetwok();
+          </script>  
+     
+{% endblock %}

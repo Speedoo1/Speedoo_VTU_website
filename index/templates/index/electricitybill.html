@@ -1,0 +1,99 @@
+
+{% extends "index/navbar.html" %}
+
+{%block electric%}class="active"{%endblock%}
+        {% block body %}
+          <div class="container  airtime-color shadow">
+
+            <form action="{% url 'index:electric'%}" method="post">
+              {% csrf_token %}
+              <div class="container">
+
+
+
+
+                <h3 class="buy">Pay Electricity Bill</h3><br>
+
+
+                <hr><br>
+                  {% for message in messages%}
+
+                   <div class="alert {{message.tags}} alert-dismissible" role="alert">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="True">&times;</span>
+                     </button>
+                     {{message}}
+                   </div>
+
+                  {%endfor%}
+              <label ><b>Wallet Balance</b></label>
+                <select name="" id="" style="display: block; margin-top:12px ;">
+                  <option>{{wallet.wallet}}</option>
+                </select><br/>
+                   <span>Electricity Company</span>
+              <select name="company" id="company" style="display: block; margin-top:12px ;">
+                 <option value="">--SELECT--</option>
+                <option value="01">Eko Electric-EKEDC(PHCN)</option>
+                  <option value="02">Ikeja Electric-IKEDC(PHCN)</option>
+                  <option value="03">Abuja Electric-AEDC</option>
+                  <option value="04">Kano Electric-KEDC</option>
+                  <option value="05">Portharcourt Electric-PHEDC</option>
+                   <option value="06">Jos Electric-JEDC</option>
+                  <option value="07">Ibadan Electric-IBEDC</option>
+                  <option value="08">Kaduna Electric-KAEDC</option>
+                   <option value="09">Enugu Electric-EEDC</option>
+
+
+
+
+
+
+
+
+                </select><br/>
+                   <span>Choose your Meter Type</span>
+              <select name="meter"  style="display: block; margin-top:12px ;">
+                 <option value="">--SELECT--</option>
+                <option value="01">Prepaid</option>
+                  <option value="02">Postpaid</option>
+
+                </select><br/>
+
+
+                <label ><b>Meter Number</b></label>
+                <input type="number" placeholder="Enter meter number" name="meter_number" id="meter"  required>
+              <label ><b>Phone Number</b></label>
+                <input type="number" placeholder="Enter phone number" name="phone_number" id="phone"  required>
+
+                <label for="amount"><b>AMOUNT</b></label>
+                <input type="number" placeholder="Enter amount" min="100" max="50000" name="amount" id="amount" required>
+
+
+
+
+                <hr>
+                <p>kindly check the detail again before clicking on the the send button.</p>
+
+
+
+                <button type="submit" class="registerbtn">PAY NOW</button>
+              </div>
+
+
+            </form>
+
+
+
+
+          </div>
+
+
+
+
+  <script>
+
+    if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
+    }
+  </script>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'index/navbar.html'%}
+{%block airtime%}class="navbars-nav"{%endblock%}
+{%block data%}class="navbars-nav"{%endblock%}
+
+{% block body %}
+          <div class="container  airtime-color shadow">
+
+            <form action="{% url 'index:waec'%}" method="post">
+              {% csrf_token %}
+              <div class="container">
+
+
+
+
+                <h3 class="buy">BUY WAEC e-PIN</h3><br>
+
+
+                <hr><br>
+                  {% for message in messages%}
+
+                   <div class="alert {{message.tags}} alert-dismissible" role="alert">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="True">&times;</span>
+                     </button>
+                     {{message}}
+                   </div>
+
+                  {%endfor%}
+
+              <label ><b>Wallet Balance</b></label>
+                <select name="" id="" style="display: block; margin-top:12px ;">
+                  <option>{{wallet.wallet}}</option>
+                </select><br/>
+
+                <label ><b>Phone Number</b></label>
+                <input type="number" placeholder="Enter phone number" name="number" id="email"  required><br/>
+
+
+
+              <span>Exam Type</span>
+              <select name="waec" id="net" style="display: block; margin-top:12px ;">
+                 <option value="">--SELECT--</option>
+                {% for w in waec %}
+                <option value="{{w.value}}">{{w.name}}-N{{w.price}}</option>
+                {%endfor%}
+
+                </select><br/>
+
+                <hr>
+                <p>kindly check the detail again before clicking on the the send button.</p>
+
+
+
+                <button type="submit" class="registerbtn">PAY NOW</button>
+              </div>
+
+
+            </form>
+
+
+
+
+          </div>
+
+
+
+
+  <script>
+
+    if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
+    }
+  </script>
+{%endblock%}
