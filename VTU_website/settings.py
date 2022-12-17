@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-import django_heroku
+
 from django.contrib import messages
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -130,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static/'
-django_heroku.settings(locals())
+
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -146,4 +146,4 @@ MESSAGE_TAGS = {
 SESSION_COOKIE_AGE = 18000
 SESSION_SAVE_EVERY_REQUEST = True
 AUTH_USER_MODEL = 'index.profile'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATICFILES_DIRS = [BASE_DIR / 'static']
