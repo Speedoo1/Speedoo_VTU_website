@@ -78,20 +78,20 @@ WSGI_APPLICATION = 'VTU_website.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'railway',
-    #     'USER': 'postgres',
-    #     'PASSWORD': '42JcISRL8uSnonZbLOTJ',
-    #     'HOST': 'containers-us-west-115.railway.app',
-    #     'PORT': '6366'
-    #     #pretty bird on railway
-    #    # adedejiboy1st.
-    # }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '42JcISRL8uSnonZbLOTJ',
+        'HOST': 'containers-us-west-115.railway.app',
+        'PORT': '6366'
+        #pretty bird on railway
+       # adedejiboy1st.
+     }
 }
 
 # Password validation
