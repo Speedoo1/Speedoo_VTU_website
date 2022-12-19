@@ -1,0 +1,204 @@
+.wrapper{
+background-color:#222222;
+margin-bottom: 50px;
+color: #fff;
+}
+
+.header{
+   font-size: 40px; 
+}
+.wrapper p{
+    font-size: 22px;
+    box-sizing: border-box;
+   
+}
+.containerss {
+    padding: 16px ;
+     background-color: white ;
+
+  }
+
+.speedoo{
+    color:#e08125 !important;
+}
+.speedoo:hover{
+    color: #fff !important;
+}
+.moreu{
+   
+}
+.naaa{
+    background-color:#e08125 !important;
+}
+.more a:hover{
+    color: #e08125;
+}
+.more{
+    
+   margin-top: 12px;
+   padding:0 ;
+    border-bottom: 1px solid #333;
+   text-align: center;
+   padding: 12px;
+   width: 250px;
+ 
+}
+.wrapper_link{
+
+color: #fff;
+margin-top: 500px;
+background-color: #e08125;
+text-decoration: none;
+border-radius: 30px;
+padding: 15px 35px;
+
+
+}
+.elec{
+    margin-top: 12px;
+}
+.wrapper_link:hover{
+    color: #fff;
+    text-decoration: none;
+
+}
+.data h4{
+    text-align: center;
+}
+.datap{
+    text-align: center;
+}
+.under{
+    padding: 25px 35px;  
+    border: 1px solid #3333;
+}
+.underp{
+   font-weight: bold;
+   font-size: medium;
+    
+}
+.customerp{
+ margin-top: 100px;
+ color: #e08125;
+ font-weight: bold;
+ font-size: 2rem;
+}
+.customer{
+    margin-top:12px;
+    background-color:#e5eff1;
+}
+.form-divinput{
+    background-color: var(--white); 
+   
+    color: var(--manatee);
+    border-radius: var(--radius-5);
+    padding: 15px 25px;
+    font-size: var(--fs-5);
+    margin-block-end: 15px;
+}
+  .stextarea {
+    border: none;
+    background: var(--action-primary);
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font: inherit;
+    color: var(--foreground-secondary);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+/* .form-divinput{
+
+    border: 1px solid #e08125;
+} */
+.form-div{
+   
+    padding: 50px 25px;
+    border-radius: var(--radius-20);
+}
+
+.form-div input::placeholder{
+    color:#222222;
+}
+.form-div textarea{
+    color: #222222;
+}
+.airtime{
+    background-color: #e5eff1;
+}
+/* airtime section */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Add padding to containers */
+
+  
+  /* Full-width input fields */
+  input[type=tel], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=tel]:focus, input[type=password]:focus {
+    background-color: #e08125;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color:#e08125;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+ 
+
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  
+.airtime-color{
+    background-color:#fff;
+   
+   
+   
+}
+.buy{
+    text-align: center;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+
+}
+input[type='number']{
+-moz-appearance:textfield;
+}
+.airtime-color-input{
+    width: 250px;
+    border: 1px solid #e08125;
+
+}

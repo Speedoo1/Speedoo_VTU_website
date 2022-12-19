@@ -65,6 +65,7 @@ def airtime(request):
     wallets = profile.objects.get(username=request.user)
 
     if request.method == 'POST':
+        #http://shaww.pythonanywhere.com/
 
         phonenumber = request.POST.get('number')
         amount = request.POST.get('amount')
