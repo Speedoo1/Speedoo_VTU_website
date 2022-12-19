@@ -22,7 +22,7 @@
 </head>
 <body class="airtime">
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar  navbar-expand-lg navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -32,7 +32,7 @@
             </button>
             <a class="navbar-brand speedoo" href="#">Speedoo connect</a>
           </div>
-          <div class="collapse navbar-collapse  in navbar-inverse" id="myNavbar">
+          <div class="collapse navbar-collapse   navbar-inverse" id="myNavbar">
             <ul class="nav navbar-nav navbar-inverse ">
               <li class="navbars-nav"><a href="{% url 'index:index'%}" class="speedoo">Home</a></li>
              <li {%block airtime%}class="navbars-nav"{%endblock%}><a href="{% url 'index:airtime'%}" class="speedoo">BUY AIRTIME</a></li>
@@ -43,12 +43,12 @@
                 <a class="dropdown-toggle speedoo" data-toggle="dropdown" href="#" >MORE OPTIONS
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu moreu">
-                   <li class="more"><a href="{% url 'index:print'%}">PRINT RECHARGE CARD</a></li>
-                  <li class="more"><a href="{% url 'index:waec'%}">BUY WAEC  e-PIN </a></li>
-                      <li class="more"><a href="{% url 'index:profile'%}">PROFILE</a></li>
-                     <li class="more"><a href="{% url 'index:fund'%}">FUND WALLET</a></li>
-                    <li class="more"><a href="{% url 'index:history'%}">Transaction History </a></li>
-                  <li class="more"><a href="#">CONTACT US </a></li>
+                   <li class="more" style="width:100%;"><a href="{% url 'index:print'%}">PRINT RECHARGE CARD</a></li>
+                  <li class="more"style="width:100%;"><a href="{% url 'index:waec'%}">BUY WAEC  e-PIN </a></li>
+                      <li class="more"style="width:100%;"><a href="{% url 'index:profile'%}">PROFILE</a></li>
+                     <li class="more"style="width:100%;"><a href="{% url 'index:fund'%}">FUND WALLET</a></li>
+                    <li class="more"style="width:100%;"><a href="{% url 'index:history'%}">Transaction History </a></li>
+                  <li class="more"style="width:100%;"><a href="#">CONTACT US </a></li>
                 </ul>
               </li>
             </ul>

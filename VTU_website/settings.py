@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!ux!28h1&+ft*y@2$x@wn2!@()77r)pzb5r^hzvn_b^f2fyov^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -82,16 +82,16 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
-     'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
         'PASSWORD': '8lzC1wqctSJSymHCGiT7',
         'HOST': 'containers-us-west-115.railway.app',
         'PORT': '6366'
-    #     #pretty bird on railway
-    #    # adedejiboy1st.
-     }
+        #     #pretty bird on railway
+        #    # adedejiboy1st.
+    }
 }
 
 # Password validation

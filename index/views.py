@@ -400,7 +400,7 @@ def cabletv(request):
 def history(request):
     history = request.user.historydata_set.all()
     context = {'history': history}
-    return render(request, 'index/singleHistory.html', context)
+    return render(request, 'index/History.html', context)
 
 
 def singleHistory(request, pk):
