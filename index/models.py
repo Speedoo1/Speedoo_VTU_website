@@ -123,21 +123,7 @@ class Startimespackages(models.Model):
         return str(self.name)
 
 
-class friend(models.Model):
-    id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
-    name = models.ManyToManyField(profile, null=True)
-
-    def __str__(self):
-        return str(self.name)
 
 
-class chat(models.Model):
-    id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
-    name = models.ForeignKey(friend, on_delete=models.CASCADE, null=True)
-    messages = models.TextField()
-    read = models.BooleanField(default=False)
-
-    def __str__(self):
-        return str(self.messages)
 
 
