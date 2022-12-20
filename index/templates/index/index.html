@@ -8,14 +8,17 @@
         <p class="datap"> Electronic vending of data  and airtime</p>
         <br/><br/><br/><br/>
 
-        <div class="row">
-          <div class="col-sm-12 col-lg-4 col-md-6 elec" style="z-index: -1;">
-            <img src="{% static 'index/images/electricity_copy_800x864.jpg' %}"  class="img-responsive">
-          
-            <div class="under ">
-              <p  class="underp"> PAY ELECTRICITY BILL</p>
+        <div class="row"  >
+          <div class="col-sm-12 col-lg-4 col-md-6 elec"  >
+
+                <img src="{% static 'index/images/electricity_copy_800x864.jpg' %}"  style="z-index:-1; position: relative;"  class="img-responsive">
+
+
+            <div class="under" >
+              <p  class="underp" style="z-index:-1; position: relative;"> PAY ELECTRICITY BILL</p>
               <p>Pay your eletricity bill</p><br>
-              <a href="{% url 'index:electric'%}" class="wrapper_link">Buy Now</a>
+              <a href="{% url 'index:electric'%}" class="wrapper_link"  >Buy Now</a>
+
             </div>
         </div>
           <div class="col-sm-12 col-lg-4 col-md-6 elec">
@@ -24,7 +27,7 @@
               <div class="under ">
                 <P class="underp">CABLE TV SUB</P>
                 <p>Enjoy huge amount of Airtime</p><br>
-                <a href="" class="wrapper_link">Buy Now</a>
+                <a href="{%url 'index:cable'%}" class="wrapper_link">Buy Now</a>
               </div>
           </div>
 

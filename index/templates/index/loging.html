@@ -3,9 +3,9 @@
 {%block data%}class="navbars-nav"{%endblock%}
 
 {%block body %}
-          <div class="container  airtime-color shadow">
+          <div class="container airtime-color shadow">
 
-            <form action="{% url 'index:loging'%}" method="post"  autocomplete="off">
+            <form action="{% url 'index:loging'%}" method="post"   autocomplete="off">
                 {%csrf_token%}
 
 
@@ -39,7 +39,10 @@
 
 
                   <a href="#">Forgo</a>
-                <button type="submit" class="registerbtn">Login</button>
+
+                      <button type="submit"   class="registerbtn"  >Login</button>
+
+
               </div>
 
 

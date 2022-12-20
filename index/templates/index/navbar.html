@@ -39,16 +39,16 @@
               <li {%block data%} class="navbars-nav"{%endblock%}><a href="{% url 'index:data' %}" class="speedoo">BUY DATA BUNDLE</a></li>
               <li {%block cable%}class="navbars-nav"{%endblock%}><a href="{%url 'index:cable'%}" class="speedoo">CABLE TV SUBSCRIPTION</a></li>
               <li {% block electric%} class="navbars-nav"{%endblock%}><a href="{% url 'index:electric'%}" class="speedoo">ELECTRICITY PAYMENT</a></li>
-              <li class="dropdown">
+              <li class="dropdown" >
                 <a class="dropdown-toggle speedoo" data-toggle="dropdown" href="#" >MORE OPTIONS
                 <span class="caret"></span></a>
-                <ul class="dropdown-menu moreu">
-                   <li class="more" style="width:100%;"><a href="{% url 'index:print'%}">PRINT RECHARGE CARD</a></li>
-                  <li class="more"style="width:100%;"><a href="{% url 'index:waec'%}">BUY WAEC  e-PIN </a></li>
-                      <li class="more"style="width:100%;"><a href="{% url 'index:profile'%}">PROFILE</a></li>
-                     <li class="more"style="width:100%;"><a href="{% url 'index:fund'%}">FUND WALLET</a></li>
-                    <li class="more"style="width:100%;"><a href="{% url 'index:history'%}">Transaction History </a></li>
-                  <li class="more"style="width:100%;"><a href="#">CONTACT US </a></li>
+                <ul class="dropdown-menu moreu" >
+                   <li class="more speedoo " style="width:100%;"><a href="{% url 'index:print'%}">PRINT RECHARGE CARD</a></li>
+                  <li class="more speedoo "style="width:100%;"><a href="{% url 'index:waec'%}">BUY WAEC  e-PIN </a></li>
+                      <li class="more speedoo "style="width:100%;"><a href="{% url 'index:profile'%}">PROFILE</a></li>
+                     <li class="more speedoo "style="width:100%;"><a href="{% url 'index:fund'%}">FUND WALLET</a></li>
+                    <li class="more speedoo "style="width:100%;"><a href="{% url 'index:history'%}">Transaction History </a></li>
+                  <li class="more speedoo "style="width:100%;"><a href="#">CONTACT US </a></li>
                 </ul>
               </li>
             </ul>
