@@ -1,4 +1,3 @@
-
 import requests
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -61,11 +60,10 @@ def fundwallet(request):
 
 @login_required(login_url='index:loging')
 def airtime(request):
-
     wallets = profile.objects.get(username=request.user)
 
     if request.method == 'POST':
-        #http://shaww.pythonanywhere.com/
+        # http://shaww.pythonanywhere.com/
 
         phonenumber = request.POST.get('number')
         amount = request.POST.get('amount')
@@ -355,6 +353,7 @@ def logoutpage(requst):
 @login_required(login_url="index:loging")
 def confirmpayment(request):
     wallet = profile.objects.get(username=request.user)
+
     context = {"wallet": wallet}
     return render(request, "index/confirm_payment.html", context)
 
@@ -362,8 +361,11 @@ def confirmpayment(request):
 @login_required(login_url="index:loging")
 def payment(request):
     wallet = profile.objects.get(username=request.user)
-    wallet.wallet = wallet.wallet + wallet.pending_wallet
-    wallet.pending_wallet = 0.0
+    wallet.wallet = wallet.wallet + wallet.credit
+    wallet.pending_wallet = 0.00
+    wallet.display = 0.00
+    wallet.pending_wallet = 0.00
+    wallet.credit = 0.00
     wallet.save()
     messages.success(request, 'Payment made successfully')
     return redirect("index:fund")
@@ -375,13 +377,17 @@ def pendigwallet(request):
 
     if request.method == 'POST':
         fund = request.POST.get("amount")
+
         percentage = 1.5 / 100
-        getpercentage = percentage*int(fund)
-        getpercentage = getpercentage + int(fund)
-        fund = getpercentage
-        wallet.pending_wallet = fund
+        getpercentage = percentage * int(fund)
+        getpercentage = getpercentage + float(fund)
+        funds = getpercentage * 100
+        wallet.display = getpercentage
+        wallet.pending_wallet = funds
+        wallet.credit = fund
         wallet.save()
-    return redirect('index:confirm-payment')
+
+    return redirect('index:confirm-payment', )
 
 
 @login_required(login_url='index:loging')
@@ -392,7 +398,7 @@ def cabletv(request):
     startimes = Startimespackages.objects.all()
     # if request.method=='POST':
     #     number=request.POSt.get('')
-    context = {"wallet": wallet, 'dstv': dstv, 'gotv': gotv, 'startimes': startimes}
+    context = {"wallet": wallet, 'dstv': dstv, 'gotv': gotv, 'startimes': startimes, }
     return render(request, 'index/cableTv.html', context)
 
 

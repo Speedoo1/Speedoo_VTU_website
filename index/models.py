@@ -13,6 +13,8 @@ class profile(AbstractUser):
     phone_number = models.CharField(unique=True, max_length=20, default='+234')
     gender = models.CharField(max_length=20, choices=gend, default="male")
     pending_wallet = models.FloatField(default=0.0)
+    display = models.FloatField(default=0.0)
+    credit = models.FloatField(default=0.0)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
@@ -121,9 +123,3 @@ class Startimespackages(models.Model):
 
     def __str__(self):
         return str(self.name)
-
-
-
-
-
-

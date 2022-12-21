@@ -29,7 +29,7 @@
                   <td>{{his.transaction_type}}</td>
 
                    <td>#{{his.amount}}</td>
-                    <td>24-02-2020</td>
+                    <td>{{his.date}}</td>
                    <td><a class="wrapper_link" href="{% url 'index:history-single' his.id %}">View Status</a></td>
               </tr>
               {%endfor%}

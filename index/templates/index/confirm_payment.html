@@ -4,13 +4,14 @@
 {%block data%}class="navbars-nav"{%endblock%}
         {% block body %}
 <script src="https://checkout.flutterwave.com/v3.js"></script>
+ <script src="https://js.paystack.co/v1/inline.js"></script>
           <div class="container  airtime-color shadow">
               <h3 class="buy">Confirm Payment</h3>
               <hr>
                 <br><br>
               <div class="container">
 
-                  <h6 class="buy">You are about to recharge your wallet with the total sum of {{wallet.pending_wallet}} naira <br/>kindly press the below
+                  <h6 class="buy">You will be charge {{wallet.display}}0 naira  with  charges fee 1.5% & your wallet will be credit with {{wallet.credit}}0 naira <br/>kindly press the below
                   button to continue with your transaction
 
 
@@ -80,10 +81,39 @@ return false;
 }
 });
 });
+function makePayment(){
+ var handler = PaystackPop.setup({
+        key: 'pk_test_1532fa2762bcc820dad7b04e4d9353de1bb752cb', //put your public key here
+        email: '{{wallet.email}}', //put your customer's email here
+        amount: {{wallet.pending_wallet}}, //amount the customer is supposed to pay
+        metadata: {
+            custom_fields: [
+                {
+                    display_name: "{{wallet.username}}",
+                    variable_name: "{{wallet.username}}",
+                    value: "{{wallet.phone_number}}" //customer's mobile number
+                }
+            ]
+        },
+        callback: function (response) {
 
-         function makePayment() {
+           console.log(response)
+           window.open( {% url 'index:payment'%},'_top')
+
+ },
+        onClose: function () {
+            //when the user close the payment modal
+            alert('Transaction cancelled');
+        }
+    });
+    handler.openIframe(); //open the paystack's payment modal
+
+
+}
+
+         function makePayments() {
     FlutterwaveCheckout({
-      public_key: "FLWPUBK_TEST-81e954c331f3cb6649a8153dbfee2d75-X",
+      public_key: "pk_live_22521896feff1a5ec860f4e441a5a0068fa30c81",
       tx_ref: "titanic-48981487343MDI0NzMx",
       amount: {{wallet.pending_wallet}},
       currency: "NGN",
