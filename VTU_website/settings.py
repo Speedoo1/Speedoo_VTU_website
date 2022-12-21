@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'index',
-    'online_users',
+    #'online_users',
 
 ]
 
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'online_users.middleware.OnlineNowMiddleware',
+    #'online_users.middleware.OnlineNowMiddleware',
 ]
 
 ROOT_URLCONF = 'VTU_website.urls'
