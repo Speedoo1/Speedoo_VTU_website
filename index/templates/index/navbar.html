@@ -39,10 +39,10 @@
               <li {%block data%} class="navbars-nav"{%endblock%}><a href="{% url 'index:data' %}" class="speedoo">BUY DATA BUNDLE</a></li>
               <li {%block cable%}class="navbars-nav"{%endblock%}><a href="{%url 'index:cable'%}" class="speedoo">CABLE TV SUBSCRIPTION</a></li>
               <li {% block electric%} class="navbars-nav"{%endblock%}><a href="{% url 'index:electric'%}" class="speedoo">ELECTRICITY PAYMENT</a></li>
-              <li class="dropdown" >
+              <li class="dropdown"  >
                 <a class="dropdown-toggle speedoo" data-toggle="dropdown" href="#" >MORE OPTIONS
                 <span class="caret"></span></a>
-                <ul class="dropdown-menu moreu" >
+                <ul class="dropdown-menu moreu" style="z-index: 1; position: relative;">
                    <li class="more speedoo " style="width:100%;"><a href="{% url 'index:print'%}">PRINT RECHARGE CARD</a></li>
                   <li class="more speedoo "style="width:100%;"><a href="{% url 'index:waec'%}">BUY WAEC  e-PIN </a></li>
                       <li class="more speedoo "style="width:100%;"><a href="{% url 'index:profile'%}">PROFILE</a></li>
