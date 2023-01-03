@@ -1,7 +1,7 @@
 {% extends 'index/navbar.html'%}
 {%block airtime%}class="navbars-nav"{%endblock%}
 {%block data%}class="navbars-nav"{%endblock%}
-
+{%load humanize%}
 {% block body %}
           <div class="container  airtime-color shadow">
 
@@ -29,7 +29,7 @@
 
               <label ><b>Wallet Balance</b></label>
                 <select name="" id="" style="display: block; margin-top:12px ;">
-                  <option>{{wallet.wallet}}</option>
+                  <option>&#8358;{{wallet.wallet|intcomma}}</option>
                 </select><br/>
 
                 <label ><b>Phone Number</b></label>

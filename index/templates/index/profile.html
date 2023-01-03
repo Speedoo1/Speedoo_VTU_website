@@ -1,6 +1,7 @@
 {% extends 'index/navbar.html' %}
 {%block airtime%}class="navbars-nav"{%endblock%}
 {%block data%}class="navbars-nav"{%endblock%}
+{% load humanize%}
 {% block body %}
           <div class="container  airtime-color shadow">
 
@@ -31,7 +32,7 @@
                  <label><h5><b>Mobile number:</b></h5></label>&nbsp; <label ><h5>{{profile.phone_number}}</h5></label><br>
 
                 <label><h5><b>Gender:</b></h5></label>&nbsp; <label ><h5>{{profile.gender}}</h5></label><br>
-                 <label><h5><b>Wallet Ballance:</b></h5></label>&nbsp; <label ><h5>{{profile.wallet}}</h5></label><br>
+                 <label><h5><b>Wallet Ballance:</b></h5></label>&nbsp; <label ><h5>&#8358; {{profile.wallet|intcomma}}</h5></label><br>
 
 
 

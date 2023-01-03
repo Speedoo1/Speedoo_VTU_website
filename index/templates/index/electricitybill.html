@@ -1,6 +1,6 @@
 
 {% extends "index/navbar.html" %}
-
+{% load humanize %}
 {%block electric%}class="active"{%endblock%}
         {% block body %}
           <div class="container  airtime-color shadow">
@@ -28,8 +28,9 @@
                   {%endfor%}
               <label ><b>Wallet Balance</b></label>
                 <select name="" id="" style="display: block; margin-top:12px ;">
-                  <option>{{wallet.wallet}}</option>
+                  <option>&#8358;{{wallet.wallet|intcomma}}</option>
                 </select><br/>
+                 <a href="{% url 'index:fund'%}" class="btn btn-success w-100">Fund Wallet</a><br><br>
                    <span>Electricity Company</span>
               <select name="company" id="company" style="display: block; margin-top:12px ;">
                  <option value="">--SELECT--</option>

@@ -24,8 +24,9 @@
                   {%endfor%}
                 <label ><b>Wallet Balance</b></label>
                 <select name="" id="" style="display: block; margin-top:12px ;">
-                  <option>{{wallet.wallet}}</option>
+                  <option>&#8358;{{wallet.wallet|intcomma}}</option>
                 </select><br/>
+                   <a href="{% url 'index:fund'%}" class="btn btn-success w-100">Fund Wallet</a><br><br>
                 <label ><b>Number</b></label>
                 <input type="number" placeholder="Enter phone number" name="number" id="email"  required><br/><br/>
                 <span>Cable Tv</span>

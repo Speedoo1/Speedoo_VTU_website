@@ -1,5 +1,6 @@
 
 {% extends "index/navbar.html" %}
+{% load humanize %}
 {%block airtime%}class="active"{%endblock%}
 
         {% block body %}
@@ -29,12 +30,13 @@
                   {%endfor%}
               <label ><b>Wallet Balance</b></label>
                 <select name="" id="" style="display: block; margin-top:12px ;">
-                  <option>{{wallet.wallet}}</option>
+                  <option> &#8358;{{wallet.wallet|intcomma}}</option>
                 </select><br/>
+                <a href="{% url 'index:fund'%}" class="btn btn-success w-100">Fund Wallet</a><br><br>
                 <label ><b>Number</b></label>
                 <input type="number" placeholder="Enter phone number" name="number" id="email"  required>
             
-                <label for="amount"><b>Amount (#100/#50,000)</b></label>
+                <label for="amount"><b>Amount ( &#8358;100/ &#8358;50,000)</b></label>
                 <input type="number" placeholder="Enter amount" min="100" max="50000" name="amount" id="amount" required>
             
                

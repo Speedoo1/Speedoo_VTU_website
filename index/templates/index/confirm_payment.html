@@ -2,7 +2,9 @@
 {% extends "index/navbar.html" %}
 {%block airtime%}class="navbars-nav"{%endblock%}
 {%block data%}class="navbars-nav"{%endblock%}
+{%load humanize%}
         {% block body %}
+
 <script src="https://checkout.flutterwave.com/v3.js"></script>
  <script src="https://js.paystack.co/v1/inline.js"></script>
           <div class="container  airtime-color shadow">
@@ -11,7 +13,7 @@
                 <br><br>
               <div class="container">
 
-                  <h6 class="buy">You will be charge {{wallet.display}}0 naira  with  charges fee 1.5% & your wallet will be credit with {{wallet.credit}}0 naira <br/>kindly press the below
+                  <h6 class="buy">You will be charge &#8358;{{wallet.display|intcomma}}0   with  charges fee 1.5% & your wallet will be credit with &#8358;{{wallet.credit|intcomma}}0  <br/>kindly press the below
                   button to continue with your transaction
 
 

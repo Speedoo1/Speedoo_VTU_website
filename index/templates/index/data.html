@@ -1,5 +1,6 @@
 
 {% extends 'index/navbar.html' %}
+{% load humanize %}
 {%block airtime%}class="navbars-nav"{%endblock%}
 {%block data%}class="active"{%endblock%}
 
@@ -24,8 +25,9 @@
                   {%endfor%}
                 <label ><b>Wallet Balance</b></label>
                 <select name="" id="" style="display: block; margin-top:12px ;">
-                  <option>{{wallet.wallet}}</option>
+                  <option> &#8358;{{wallet.wallet|intcomma}}</option>
                 </select><br/>
+                   <a href="{% url 'index:fund'%}" class="btn btn-success w-100">Fund Wallet</a><br><br>
                 <label ><b>Number</b></label>
                 <input type="number" placeholder="Enter phone number" name="number" id="email"  required><br/><br/>
                 <span>Choose your network</span>  
@@ -50,7 +52,7 @@
                <select name="plan" id="m" style="display: block; margin-top:12px ;">
 
                    {% for m in mtn %}
-                    <option value="{{m.value}}">{{m.datagb}}/N{{m.dataprice}}</option>
+                    <option value="{{m.value}}">{{m.datagb}}/ &#8358;{{m.dataprice|intcomma}}</option>
                    {%endfor%}
 
                    </select>
@@ -58,7 +60,7 @@
                     <select name="plan"id="g" style="display: block; margin-top:12px ;">
 
                         {% for g in glo %}
-                        <option value="{{g.value}}">{{g.datagb}}/N{{g.dataprice}}</option>
+                        <option value="{{g.value}}">{{g.datagb}}/ &#8358;{{g.dataprice|intcomma}}</option>
                         {%endfor%}
 
                         </select>
@@ -67,7 +69,7 @@
                         <select name="plan" id="e"  style="display: block; margin-top:12px ;">
 
                             {% for m in mobile9 %}
-                            <option value="{{m.value}}">{{m.datagb}}/N{{m.dataprice}}</option>
+                            <option value="{{m.value}}">{{m.datagb}}/ &#8358;{{m.dataprice|intcomma}}</option>
                             {%endfor%}
 
             
@@ -78,7 +80,7 @@
                             <select name="plan"  id="a" >
 
                                 {% for a in airtel %}
-                                <option value="{{a.value}}">{{a.datagb}}/{{a.dataprice}}</option>
+                                <option value="{{a.value}}">{{a.datagb}}/ &#8358;{{a.dataprice|intcomma}}</option>
                                 {%endfor%}
 
                                 </select>
