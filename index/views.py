@@ -1,3 +1,5 @@
+import time
+
 import requests
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -378,13 +380,14 @@ def pendigwallet(request):
     if request.method == 'POST':
         fund = request.POST.get("amount")
 
-        percentage = 1.5 / 100
-        getpercentage = percentage * int(fund)
-        getpercentage = getpercentage + float(fund)
-        funds = getpercentage * 100
-        wallet.display = getpercentage
+        percentage = 1.6 / 100
+        percentage = percentage * int(fund)
+        percentage = float(fund) - percentage
+        funds = int(fund) * 100
+        wallet.display = fund
+
         wallet.pending_wallet = funds
-        wallet.credit = fund
+        wallet.credit = percentage
         wallet.save()
 
     return redirect('index:confirm-payment', )
