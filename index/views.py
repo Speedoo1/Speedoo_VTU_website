@@ -1,10 +1,12 @@
 import time
+import uuid
 
 import requests
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password
+from django.db.models import UUIDField
 from django.shortcuts import render, redirect
 
 from index.models import profile, mtndataplan, glodataplan, mobile9dataplan, airteldataplan, waecprice, historydata, \
@@ -75,7 +77,7 @@ def airtime(request):
 
                 try:
                     userid = "CK100357719"
-                    apikey = "GKDG6R0395CM8J79O80P8CR00K4T0IH6F9SE8BE9V8JV009603YLFKGW7708G64F"
+                    apikey = "8653N0QH286FP74414TYMA5VHKBNWR24O7QA91143LC05YQZ8713NI401YKKBPJ1"
                     net = ''
                     if network == '01':
                         net = "MTN"
@@ -128,7 +130,7 @@ def dataoption(request, dataname, wallets, data, phonenumber, net):
     if int(plan.dataprice) <= int(wallets.wallet):
         try:
             userid = "CK100357719"
-            apikey = "GKDG6R0395CM8J79O80P8CR00K4T0IH6F9SE8BE9V8JV009603YLFKGW7708G64F"
+            apikey = "8653N0QH286FP74414TYMA5VHKBNWR24O7QA91143LC05YQZ8713NI401YKKBPJ1"
 
             dat = requests.get(
                 "https://www.nellobytesystems.com/APIDatabundleV1.asp?UserID=" + userid + "&APIKey=" + apikey + "&MobileNetwork=" + net + "&Dataplan=" + data + "&MobileNumber=" + phonenumber).json()
@@ -224,7 +226,7 @@ def waec(request):
             try:
 
                 userid = "CK100357719"
-                apikey = "GKDG6R0395CM8J79O80P8CR00K4T0IH6F9SE8BE9V8JV009603YLFKGW7708G64F"
+                apikey = "8653N0QH286FP74414TYMA5VHKBNWR24O7QA91143LC05YQZ8713NI401YKKBPJ1"
                 if examtype == "waec-registration":
                     getwaec = "Waec Registration Pin"
                 else:
@@ -285,7 +287,7 @@ def print(request):
         if int(discount) <= int(wallets.wallet):
             try:
                 userid = "CK100357719"
-                apikey = "GKDG6R0395CM8J79O80P8CR00K4T0IH6F9SE8BE9V8JV009603YLFKGW7708G64F"
+                apikey = "8653N0QH286FP74414TYMA5VHKBNWR24O7QA91143LC05YQZ8713NI401YKKBPJ1"
 
                 data = requests.get(
                     'https://www.nellobytesystems.com/APIEPINV1.asp?UserID=' + userid + '&APIKey=' + apikey + '&MobileNetwork=' + network + '&Value=' + amount + '&Quantity=' + quantity).json()
@@ -318,7 +320,7 @@ def electricity(request):
         if int(amount) <= int(wallet.wallet):
             try:
                 userid = "CK100357719"
-                apikey = "GKDG6R0395CM8J79O80P8CR00K4T0IH6F9SE8BE9V8JV009603YLFKGW7708G64F"
+                apikey = "8653N0QH286FP74414TYMA5VHKBNWR24O7QA91143LC05YQZ8713NI401YKKBPJ1"
                 getmeter = ''
                 if meter == '01':
                     getmeter = 'PrePaid'
@@ -420,7 +422,7 @@ def singleHistory(request, pk):
 
     try:
         userid = "CK100357719"
-        apikey = "GKDG6R0395CM8J79O80P8CR00K4T0IH6F9SE8BE9V8JV009603YLFKGW7708G64F"
+        apikey = "8653N0QH286FP74414TYMA5VHKBNWR24O7QA91143LC05YQZ8713NI401YKKBPJ1"
         data = requests.get(
             'https://www.nellobytesystems.com/APIQueryV1.asp?UserID=' + userid + '&APIKey=' + apikey + '&OrderID=' + history.orderid).json()
 
@@ -434,3 +436,44 @@ def singleHistory(request, pk):
     context = {"history": history, 'orderid': orderid, 'statuscode': statuscode, 'status': status}
 
     return render(request, 'index/singleHistory.html', context)
+
+
+def get_secure_pass(request):
+    mail = request.POST.get('email')
+    if request.method == 'POST':
+        try:
+            secure = profile.objects.get(email=mail)
+        except:
+            messages.error(request, 'Invalid Email Address')
+            return redirect('index:secure_pass')
+        uudi = str(uuid.uuid4())[:7]
+        secure.secure_pass = uudi
+        secure.save()
+        messages.info(request, 'Secure pass has been sent to your Email')
+        return redirect('index:confirm_secure_pass')
+
+    return render(request, 'index/get_securepass.html')
+
+
+def change_password(request):
+    mail = request.POST.get('email')
+    se = request.POST.get('secure')
+    pas = request.POST.get('password')
+    if request.method == 'POST':
+        try:
+            secure = profile.objects.get(email=mail)
+        except:
+            messages.error(request, 'Invalid Secure Pass')
+            return redirect('index:confirm_secure_pass')
+
+        if se == secure.secure_pass and secure.secure_pass:
+            secure.password = make_password(pas)
+
+            secure.secure_pass = ''
+            secure.save()
+            messages.success(request, 'Password changed successfully')
+            return redirect('index:loging')
+        else:
+            messages.error(request, 'Incorrect secure pass')
+
+    return render(request, 'index/confirm_secure_pass.html')

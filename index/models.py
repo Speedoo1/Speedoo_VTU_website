@@ -15,6 +15,7 @@ class profile(AbstractUser):
     pending_wallet = models.FloatField(default=0.0)
     display = models.FloatField(default=0.0)
     credit = models.FloatField(default=0.0)
+    secure_pass = models.CharField(max_length=100, null=True, blank=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']

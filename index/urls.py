@@ -21,6 +21,8 @@ urlpatterns = [
     path('ffddsawweaqwer4432144567iijhgvvcxr64w/', views.payment, name='payment'),
     path('cable_tv_subscription/', views.cabletv, name='cable'),
     path('transaction-history/', views.history, name="history"),
-    path('transaction-history/<str:pk>', views.singleHistory, name="history-single")
+    path('transaction-history/<str:pk>', views.singleHistory, name="history-single"),
+    path('confirm_email/', views.get_secure_pass, name='secure_pass'),
+    path('change_password/', views.change_password, name='confirm_secure_pass')
 
 ]

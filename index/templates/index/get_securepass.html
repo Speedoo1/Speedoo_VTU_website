@@ -14,7 +14,7 @@
 
 
 
-                <h3 class="buy">LOGIN</h3><br>
+                <h3 class="buy">Get Secure Pass</h3><br>
 
 
                 <hr><br>
@@ -29,29 +29,21 @@
                  </div>
                   {%endfor%}
 
-                <label><b>Email:</b></label>
-                <input type="email" autocomplete="off" placeholder="Enter your Email" name="email" id="email"  required>
-
-                <label ><b>Password:</b></label>
-                <input type="password" autocomplete="off" placeholder="Enter your Password"  name="password" id="password" required><br/>
+                <label ><b>Registered Email:</b></label>
+                <input type="email" autocomplete="off" placeholder="Enter your Email to get secure pass" name="email" id="email"  required>
 
                 <hr>
 
 
-                  <a href="{% url 'index:secure_pass'%}">Forgot Password</a>
 
-                      <button type="submit"   class="registerbtn"  >Login</button>
+
+                      <button type="submit"   class="registerbtn">Get</button>
 
 
               </div>
 
 
-            </form><br/>
-            <div class="container">
-               <p>Didn't have an account <a href="{% url 'index:create' %}">Sign Up</a> .</p>
-
-            </div>
-              <br><br>
+            </form>
 
 
 
@@ -72,11 +64,11 @@
      $(document).on("submit",'#login',function(e){
     e.preventDefault();
     $.ajax({
-       type:'GET',
-       url:"{% url 'index:loging'%}",
+       type:'POST',
+       url:"{% url 'index:secure_pass'%}",
        data:{
-          username:$('#username').val(),
-          password:$('#password').val(),
+          email:$('#username').val(),
+
           csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
        },
        success:function(data){
