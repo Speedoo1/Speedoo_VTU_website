@@ -136,8 +136,8 @@ def buydata(request):
 
 @api_view(['GET'])
 def base(request):
-    email = request.query_params['email']
-    password = request.query_params['password']
+    email = request.GET.get('email')
+    password = request.GET.get('password')
     user = authenticate(request, username=email, password=password)
     if user:
 
