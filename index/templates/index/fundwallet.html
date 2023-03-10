@@ -1,22 +1,24 @@
 
 {% extends "index/navbar.html" %}
-{%block airtime%}class="navbars-nav"{%endblock%}
-{%block data%}class="navbars-nav"{%endblock%}
+{%block fund%}class="active"{%endblock%}
 {%load humanize%}
         {% block body %}
-          <div class="container  airtime-color shadow">
+ <div class="login-wrapper" >
+          <div class="container">
 
             <form action="{% url 'index:pend'%}" method="post">
               {% csrf_token %}
-              <div class="container">
+              <div class="container" style="background-color: #fff; margin-top: 5%; padding: 10px 15px; width:fit-content ; height:fit-content" >
 
 
 
+              <div class="text-center">
+                 <h3 class="buy">FUND WALLET</h3>
+              </div>
 
-                <h3 class="buy">FUND WALLET</h3><br>
 
 
-                <hr><br>
+                <hr>
                   {% for message in messages%}
 
                    <div class="alert {{message.tags}} alert-dismissible" role="alert">
@@ -28,12 +30,12 @@
 
                   {%endfor%}
               <label ><b>Wallet Balance</b></label>
-                <select name="" id="" style="display: block; margin-top:12px ;">
+                <select class="login-input" name="" id="" style="display: block; margin-top:12px ;">
                   <option>&#8358;{{wallet.wallet|intcomma}}</option>
                 </select><br/>
 
                 <label for="amount"><b>Amount (&#8358; 500/&#8358; 50,000)</b></label>
-                <input type="number" placeholder="Enter amount to fund your wallet with here"  name="amount" id="amount" required>
+                <input type="number" class="login-input" placeholder="Enter amount to fund your wallet with here"  name="amount" id="amount" required>
 
 
 
@@ -42,7 +44,7 @@
 
 
 
-                <button type="submit" class="registerbtn">FUND WALLET</button>
+                <button type="submit" class="btn btn-success">FUND WALLET</button>
               </div>
 
 
@@ -52,6 +54,7 @@
 
 
           </div>
+ </div>
 
 
 

@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'index/style3.css' %}">
+
+
+    <title>Home</title>
+</head>
+<body>
+    <nav class="navbar navbar-default  navbar-fixed-top" id="headnev">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            <a class="navbar-brand" href="#">SpeedooData</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#service">Our Service</a></li>
+            <li><a href="#feature">Our Feature</a></li>
+            <li><a href="#contact">Contact us</a></li>
+        </ul>
+              {% if request.user.is_authenticated %}
+               <ul class="nav navbar-nav navbar-right">
+
+            <li><a href="{% url 'index:logout'%}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          </ul>
+              {%else%}
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="{% url 'index:loging'%}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              </ul>
+              {%endif%}
+
+          </div>
+        </div>
+      </nav>
+      <div class="wrapper">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-6 col-md-12 headline-text">
+
+                    <h5 class="wrapper-text">Home of Affordable Data</h5>
+                    <h1 class="wrapper-text">WELCOME TO SPEEDOO DATA</h1>
+                    <h3 class="wrapper-text">Here at Speedoo DATA, we offer you the most affordable and most cheapest data, airtime,<br/> Dstv, Gotv and Startimes subscription.<br/>
+                        Here is the right place for your Electricity
+                        subscription and also Convert your Airtime to Cash.</h3>
+                        <br/><br/>
+                        <a class="log" href="{% url 'index:loging' %}">Login Now</a> <a class="log" href="{% url 'index:create'%}">Signup Now</a>
+
+
+                </div>
+
+                <div class="col-sm-12 col-lg-6 col-md-12">
+                    <img class="header-img" src="{% static 'index/images/vtu-header-img.png'%}">
+
+
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- end of header head -->
+      <div class="container re">
+        <div class="row">
+            <div class="col-sm-12 col-lg-4 col-md-4">
+                <div class=" text-center " style="box-shadow: 2px 2px 2px 2px; padding: 10px 20px; height: 290px;">
+                    <img  src="{% static 'index/images/vtu-auto.png'%}">
+                    <h3>We are Automated</h3>
+                    <p>We use cutting-edge technology to run our services. Our delivery and wallet funding is automated, any service purchased will get delivered to you instantly</p>
+
+                </div>
+
+            </div>
+            <div class="col-sm-12 col-lg-4 col-md-4">
+                <div class="text-center " style="box-shadow: 2px 2px 2px 2px; padding: 10px 20px; height: 290px; ">
+                    <img src="{% static 'index/images/vtu-reliable.png'%}" alt="">
+                <h3>We are Reliable</h3>
+                <p>Our platform is a fully optimized platform for reliability and dependability. You get 100% value for any transaction you carry with us</p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="col-sm-12 col-lg-4 col-md-4">
+                <div class="text-center shadow-sm" style="box-shadow: 2px 2px 2px 2px; padding: 10px 20px; height: 290px;">
+                    <img src="{% static 'index/images/vtu-customer.png'%}" alt="">
+                    <h3>customer Support</h3>
+                    <p>Our customer service is just a click away, don't hesitate to consult us on anything as the system is 90% automated. Thus, all transactions are attended to within 5-15mins.</p>
+
+                </div>
+            </div>
+        </div>
+      </div>
+      <!-- end of trust -->
+      <div class="wrapper2">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-12 col-lg-6 col-md-6">
+                    <br/><br/> <br/><br/> <br/><br/>
+                    <img class="header-img" src="{% static 'index/images/vtu-about.png'%}" width="505" alt="">
+                </div>
+
+                <div  id='about' class="col-sm-12 col-lg-6 col-md-6" style="margin-top: 15%;">
+                    <p class="about">About Us</p>
+                    <h2 style="color: black; font-weight: bold; border-bottom: 2px solid chocolate; width: 303px; padding:10px 15px ;">Why choose Us ?</h2>
+                    <br/>
+                    <p>
+                        We offer instant recharge of Airtime, Databundle, CableTV (DStv, GOtv & Startimes),
+                        Electricity Bill Payment and more.<br/><br/>
+
+                        We have been one of the best telecommunication platform for years now. Our goal and vision is to support the race of informaton and communication technology in Nigeria and on the other hands, to support and help individuals to earn by rendering telecommuncation services from us at extremelly cheap rate from our platform. Many people have joined and our existing Clients had been enjoying this platform and ever since our exstence. We warmly welcome you as you join.
+                    </p>
+                    <br/>
+                    <a  class='log' href="{% url 'index:create'%}">Register Now</a>
+                    <br/><br/><br>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- data price set -->
+      <div class="text-center">
+        <br><br>
+        <h1>Affordable Data Price Available</h1>
+        <br><br>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-3  col-md-3" style="color: #fff;">
+                    <div style="background-color: darkorange;">
+                        <img src="{% static 'index/images/vtu-mtn.png'%}" alt="" width="80">
+                        <h5>MTN Data Price</h5>
+                        <hr>
+                        {%for i in mtn%}
+                        <span>
+                            {{i.datagb}}
+                        </span>
+                        <span>
+                            / &#8358;{{i.dataprice}}
+                        </span>
+
+                        <hr>
+                        {% endfor %}
+                         <div>
+                            <a href="{% url 'index:data'%}" style="padding: 10px 35px; border:1px solid #fff; color: #fff; width: 300px; ">Buy now</a>
+
+                        </div>
+                        <br/>
+
+
+
+                    </div>
+                </div>
+                <br/>
+                <div class="col-sm-12 col-lg-3  col-md-3" style="color: #fff;">
+                    <div style="background-color: red;">
+                        <img src="{% static 'index/images/vtu-airtel.png' %}" alt="" width="80">
+                        <h5>Airtel Data Price</h5>
+                        <hr>
+                        {% for i in airtel %}
+                        <span>
+                           {{i.datagb}}
+                        </span>
+                        <span>
+                          / &#8358; {{i.dataprice}}
+                        </span>
+
+                        <hr/>
+                        {%endfor%}
+                         <div>
+                            <a href="{% url 'index:data'%}" style="padding: 10px 35px; border:1px solid #fff; color: #fff; width: 300px; ">Buy now</a>
+
+                        </div>
+                        <br/>
+
+                    </div>
+
+                </div>
+                <br/>
+                <div class="col-sm-12 col-lg-3  col-md-3" style="color: #fff;">
+                    <div style="background-color: green;">
+                        <img src="{% static  'index/images/vtu-glo.png'%}" alt="" width="80">
+                        <h5>Glo Data Price</h5>
+                        <hr>
+                        {% for i in glo%}
+                        <span>
+                            {{i.datagb}}
+                        </span>
+                        <span>
+                           / &#8358;{{i.dataprice}}
+                        </span>
+                        <hr>
+
+                        {%endfor%}
+                         <div>
+                            <a href="{% url 'index:data'%}" style="padding: 10px 35px; border:1px solid #fff; color: #fff; width: 300px; ">Buy now</a>
+
+                        </div>
+                        <br/>
+
+                    </div>
+
+                </div>
+                <br/>
+                <div class="col-sm-12 col-lg-3  col-md-3" style="color: #fff;">
+                    <div style="background-color: rgb(1, 26, 1);">
+                        <img src="{% static 'index/images/vtu-9mobile.png'%}" alt="" width="80">
+                        <h5>9Mobile Data Price</h5>
+                        <hr>
+                        {% for i in glo %}
+                        <span>
+                           {{i.datagb}}
+                        </span>
+                        <span>
+                            / &#8358;{{i.dataprice}}
+                        </span>
+
+                        <hr/>
+                        {%endfor%}
+                         <div>
+                            <a href="{% url 'index:data'%}" style="padding: 10px 35px; border:1px solid #fff; color: #fff; width: 300px; ">Buy now</a>
+
+                        </div>
+                        <br/>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+             </div>
+      <!-- end of data price list -->
+    <br/>
+      <div class="wrapper3">
+        <div class="text-center" id="contact">
+            <br>
+            <h1 style="color: #fff;">Contact Us</h1>
+            <h3 style="color: #fff;">We are available  24/7 for any complain you might be Facing</h3>
+            <h1 style="color: #fff;">08169560559 or 08078186010</h1>
+
+        </div>
+      </div>
+      <!-- end of contact info  -->
+
+<br/>
+    <div id="service" class="text-center">
+        <p style="color: chocolate; font-size: 18px;">Our Services  </p>
+        <h1>What we can do for you</h1>
+        <p style="font-size: 18px;">
+            We offer instant recharge of Airtime, Databundle, CableTV (DStv, GOtv & Startimes),<br/> Electricity Bill Payment and more..
+        </p>
+      </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-lg-4 col-md-6" style="margin-top: 15px;">
+
+            <div class="text-center"  style="box-shadow: 1px 1px 1px 1px; padding: 10px 15px;">
+                <img src="{% static 'index/images/vtu-wifi.png'%}" width="50" alt="">
+                <h1 class="text-capitalize" style="font-size: large;">BUY DATA</h1>
+                <p>
+                    Start enjoying this very low rates Data plan for your internet browsing databundle.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-4 col-md-6" style="margin-top: 15px;">
+            <div class="text-center" style="box-shadow: 1px 1px 1px 1px; padding: 10px 15px;">
+                <img src="{% static 'index/images/vtu-airtime.png'%}" width="50" alt="">
+                <h1 style="font-size: large;">AIRTIME RECHARGE</h1>
+                <p>
+                    Making online recharge cheap and easy to buy at all time of the day.
+                </p>
+
+
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-4 col-md-6" style="margin-top: 15px;">
+            <div class="text-center"  style="box-shadow: 1px 1px 1px 1px; padding: 10px 15px;">
+                <img src="{% static 'index/images/vtu-cable.png'%}" width="50" alt="">
+                <h1 style="font-size: large;">CABLE SUBSCRIPTION</h1>
+                <p>
+                    Instant Activation of Cable subscription with favourable discount.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-4 col-md-6" style="margin-top: 15px;">
+            <div class="text-center"  style="box-shadow: 1px 1px 1px 1px; padding: 10px 15px;">
+                <img src="{% static 'index/images/vtu-bulb.png'%}" width="50" alt="">
+                <h1  style="font-size: large;">UTILITY BILLS</h1>
+                <p>
+                    Start enjoying this very low rates Data plan for your internet browsing databundle.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-4 col-md-6" style="margin-top: 15px;">
+            <div class="text-center" style="box-shadow: 1px 1px 1px 1px; padding: 10px 15px;">
+                <img src="{% static 'index/images/vtu-sms.png'%}" width="50" alt="">
+                <h1 style="font-size: large;">BULK SMS</h1>
+                <p>
+                    send messages to multiple contact at a very cheap price and good rate.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-4 col-md-6" style="margin-top: 15px;">
+            <div class="text-center" style="box-shadow: 1px 1px 1px 1px; padding: 10px 15px;">
+                <img src="{% static 'index/images/vtu-cash.png'%}" width="50" alt="">
+                <h1 style="font-size: large;">AIRTIME TO CASH</h1>
+                <p>easily convert your airtime on your phone to cash
+                    with just a click
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+  <div class="footer-wrapper">
+    <div class="container">
+        <div class="col-sm-12 col-lg-3 col-md-3">
+            <h1>Speedoo Data</h1>
+            <p>
+                Trusted Data Platform for Resellers. Subscribe for cheap data plans at affordable price for all networks.
+            </p>
+
+        </div>
+
+        <div class="col-sm-12 col-lg-3 col-md-3">
+            <h3>Others link</h3>
+            <a href="">About us</a><br>
+            <a href="">Our services</a><br>
+            <a href="">FAQS</a><br/>
+            <a href="">Our Feature</a>
+
+
+        </div>
+
+        <div class="col-sm-12 col-lg-3 col-md-3">
+            <h3>Services</h3>
+            <a href="">Airtime Top up</a><br/>
+            <a href="">BUY Data</a><br/>
+            <a href="">Cable TV subscription</a><br/>
+            <a href="">Utility Bills</a>
+        </div>
+
+        <div class="col-sm-12 col-lg-3 col-md-3">
+            <h3>GET in TOUCH</h3>
+            <p>Number 5 kk dasilver avenue lekki ajah lagos<br><br>08169560559 or 08078186010</p>
+        </div>
+
+        <div class="text-center" style="margin-top: 25px;">
+            <p>Brought to you by Speedoo</p>
+        </div>
+    </div>
+
+
+  </div>
+</body>
+
+</html>

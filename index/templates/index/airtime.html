@@ -1,47 +1,39 @@
 
 {% extends "index/navbar.html" %}
 {% load humanize %}
+{% load static %}
 {%block airtime%}class="active"{%endblock%}
 
         {% block body %}
 <br/><br/>
-          <div class="container  airtime-color shadow">
-
-            <form action="{% url 'index:airtime'%}" method="post">
-              {% csrf_token %}
-              <div class="container">
+         <div class="login-wrapper" >
 
 
+        <div class="container" >
+           <form action="{% url 'index:airtime'%}" method="post">
+            {% csrf_token %}
+            <div class="container" style="background-color: #fff; margin-top: 5%; padding: 10px 15px; width:fit-content ; height:fit-content">
+                <div class="text-center">
+                    <h1>Buy Airtime</h1>
+                    <br/><br/>
+                </div>
 
 
-                <h3 class="buy">BUY AIRTIME</h3><br>
 
-                
-                <hr><br>
-                  {% for message in messages%}
-
-                   <div class="alert {{message.tags}} alert-dismissible" role="alert">
-                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                       <span aria-hidden="True">&times;</span>
-                     </button>
-                     {{message}}
-                   </div>
-
-                  {%endfor%}
-              <label ><b>Wallet Balance</b></label>
-                <select name="" id="" style="display: block; margin-top:12px ;">
+                <label ><b>Wallet Balance</b></label>
+                <select name="" id="" class="login-input" style="display: block; margin-top:12px ;">
                   <option> &#8358;{{wallet.wallet|intcomma}}</option>
                 </select><br/>
                 <a href="{% url 'index:fund'%}" class="btn btn-success w-100">Fund Wallet</a><br><br>
                 <label ><b>Number</b></label>
-                <input type="number" placeholder="Enter phone number" name="number" id="email"  required>
-            
+                <input class="login-input" type="number" placeholder="Enter phone number" name="number" id="email"  required>
+                <br/><br/>
                 <label for="amount"><b>Amount ( &#8358;100/ &#8358;50,000)</b></label>
-                <input type="number" placeholder="Enter amount" min="100" max="50000" name="amount" id="amount" required>
-            
-               
-              <span>Choose your network</span>  
-              <select name="network" id="net" style="display: block; margin-top:12px ;">
+                <input class="login-input" type="number" placeholder="Enter amount" min="100" max="50000" name="amount" id="amount" required>
+
+               <br/><br/>
+              <label><b> Choose your network</b></label>
+              <select class="login-input" name="network" id="net" style="display: block; margin-top:12px ;">
                  <option value="">--SELECT--</option>
                 <option value="01">MTN</option>
                   <option value="02">GLO</option>
@@ -56,25 +48,12 @@
 
 
 
-                <button type="submit" class="registerbtn">Buy Airtime</button>
+                <button type="submit" class="btn btn-success">Buy Airtime</button>
               </div>
-              
-              
+
+
             </form>
-            
-            
-           
+            </div>
 
-          </div>
-
-          
-
-
-  <script>
-
-    if(window.history.replaceState){
-    window.history.replaceState(null,null,window.location.href);
-    }
-
-  </script>
-{% endblock %}
+        </div>
+         {% endblock %}

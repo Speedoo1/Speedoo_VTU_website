@@ -1,75 +1,99 @@
-
-{% extends 'index/navbar.html'%}
-{%block airtime%}class="navbars-nav"{%endblock%}
-{%block data%}class="navbars-nav"{%endblock%}
-{% block body%}
-          <div class="container  airtime-color shadow">
-
-            <form action="{% url 'index:create'%}" autocomplete="off" method="post">
-              {% csrf_token %}
-              <div class="container">
-
-
-
-
-                <h3 class="buy">Create an Account</h3><br>
-
-
-                <hr><br>
-                  {% for message in messages%}
-
-                   <div class="alert {{message.tags}} alert-dismissible" role="alert">
-                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                       <span aria-hidden="True">&times;</span>
-                     </button>
-                     &nbsp;{{message}}
-
-                 </div>
-                  {%endfor%}
-
-                <label ><b>Username:</b></label>
-                <input type="text" autocomplete="off" placeholder="Enter your Username" name="username" id="username"  required>
-
-                <label ><b>Email:</b></label>
-                <input type="email" autocomplete="off" placeholder="Enter your Email Address" name="email" id="email"  required>
-                   <label ><b>Phone Number:</b></label>
-                <input type="tel" autocomplete="off" placeholder="" name="number" id="phone"  required>
-                 <label ><b>Gender:</b></label>
-                 <select name="gender" id="e"  style="display: block; margin-top:12px ;" required>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                 </select><br/>
-                <label ><b>Password:</b></label>
-                <input type="password" autocomplete="off" placeholder="Enter your Password"  name="password" id="password" required><br/>
-                 <label ><b>Confirm Password:</b></label>
-                <input type="password" autocomplete="off" placeholder="Enter your secret Password again"  name="confirm_password" id="confirm" required><br/>
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'index/style3.css'%}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body class="login-wrapper">
+    <div class="login-wrapper" style="overflow-x: scroll;">
 
 
-                <hr>
+            <div class="container" >
+
+                <div class="container" style="background-color: #fff; margin-top: 10%; padding: 10px 15px; width: fit-content; height: fit-content; ">
+                    <div class="text-center">
+                        <h1>Create Account</h1>
+                        <br/><br/>
+                    </div>
 
 
 
-                <button type="submit" class="registerbtn">Register</button>
-              </div>
+                    <form action="{% url 'index:create'%}" autocomplete="off" method="post" >
+                        {% csrf_token %}
+                        <div class="cotainer">
+                            {% for message in messages%}
+
+                            <div class="alert {{message.tags}} alert-dismissible" role="alert">
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="True">&times;</span>
+                              </button>
+                              &nbsp;{{message}}
+
+                          </div>
+                           {%endfor%}
+                            <label for="">Username</label><br/>
+                            <input type="text" class="login-input" name="username" ><br/>
 
 
-            </form><br/>
-            <div class="container">
-               <p>Already have an account <a href="{% url 'index:loging'%}">Login</a> .</p>
+
+                            <label for="">Email Address</label><br/>
+                            <input type="text" class="login-input" name="address" >
+
+
+
+
+                            <label for="">Phone number</label><br/>
+                            <input type="text" class="login-input" name="number" >
+                            <br>
+                            <label ><b>Gender:</b></label>
+                            <select class="login-input" name="gender" id="e"  style="display: block; margin-top:12px ;" required>
+                                       <option value="Male">Male</option>
+                                       <option value="Female">Female</option>
+                            </select><br/>
+                            <label ><b>Password:</b></label>
+                            <input class="login-input" type="password" autocomplete="off" placeholder="Enter your Password"  name="password" id="password" required><br/>
+                             <label ><b>Confirm Password:</b></label>
+                            <input class="login-input" type="password" autocomplete="off" placeholder="Enter your secret Password again"  name="confirm_password" id="confirm" required>
+
+
+                            <hr>
+
+                            <br/>
+                            <input type="submit" class="btn btn-success"  value="Login now" name="" id="">
+                                <div class="text-right" style="padding: 10px 15px;">
+                                    <a href="" class="text-right">Forgot Password</a><br/>
+
+                                </div>
+
+
+                            <span  style="margin-top: 12px;">Already have an account</span>&nbsp;<a href="{% url 'index:loging'%}">Login</a>
+
+
+
+                        </div>
+                        <br>
+                       <div class="text-center">
+                        <a href="{% url 'index:index'%}" class="btn btn-info btn-lg">
+                            <span class="glyphicon glyphicon-home"></span> Home
+                          </a>
+                       </div>
+                    </form>
+                </div>
 
             </div>
 
 
 
 
-          </div>
 
+    </div>
 
-
-
-
-
-<script>
-
-</script>
-{%endblock%}
+</body>
+</html>

@@ -16,7 +16,12 @@ from index.models import profile, mtndataplan, glodataplan, mobile9dataplan, air
 def index(request):
     # info, created = profile.objects.get(username=request.user.username)
     # context = {"info": info}
-    return render(request, 'index/index.html', )
+    mtn = mtndataplan.objects.all()[:10]
+    glo = glodataplan.objects.all()[:10]
+    mobile9 = mobile9dataplan.objects.all()[:10]
+    airtel = airteldataplan.objects.all()[:10]
+    context = {'mtn': mtn, 'glo': glo, 'mobile': mobile9, 'airtel': airtel}
+    return render(request, 'index/home.html', context)
 
 
 # this method below is use to register user

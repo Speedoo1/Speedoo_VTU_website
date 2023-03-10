@@ -150,13 +150,16 @@ def base(request):
     else:
         return Response({'error': 'User credentials are not correct'})
 
-@api_view(['GEY'])
+
+@api_view(['GET'])
 def buywaec(request):
     email = request.query_params['email']
     password = request.query_params['password']
     user = authenticate(request, username=email, password=password)
     if user:
         pass
+
+
 @api_view(['GET'])
 def historydatas(request, pk):
     email = request.GET.get('email')
