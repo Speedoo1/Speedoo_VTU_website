@@ -1,0 +1,92 @@
+html {
+  scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+}
+
+.wrapper{
+    background-color: chocolate;
+    position: relative;
+    bottom: 20px;
+}
+.wrapper-text{
+    color: #fff;
+    letter-spacing: 2px;
+
+
+}
+.headline-text{
+    margin-top: 15%;
+}
+.log{
+    margin-top: 10px;
+    background-color: rgb(25, 184, 73);
+    text-decoration: none;
+
+    padding: 15px 25px;
+    color: #fff;
+
+
+
+}
+
+.re{
+    margin-top: 5%;
+}
+
+.wrapper2{
+    background-color: #F6F6F6;
+    margin-top: 5%;
+}
+
+.about{
+    color: chocolate;
+    font-size: 23px;
+}
+.wrapper3{
+    background-color:green;
+    height: 300px;
+    align-items: center;
+
+}
+.footer-wrapper{
+    margin-top: 5%;
+    background-color: chocolate;
+    color: #fff;
+    height:100% ;
+}
+
+.footer-wrapper a{
+    color: #fff;
+    padding: 10px 15px;
+}
+/* login page design */
+
+.login-wrapper{
+    background-color: chocolate;
+
+
+}
+.login-input{
+    width: 500px;
+    padding: 15px 10px;
+    margin-top: 5px;
+    display: block;
+}
+ .header-img{
+        width: 500px;
+    }
+
+@media screen and (max-width: 980px) {
+    .login-input {
+        width: 300px;
+        padding: 15px 10px;
+        margin-top: 5px;
+        display: block;
+    }
+     .header-img{
+        width: 350px;
+    }
+  }
+
