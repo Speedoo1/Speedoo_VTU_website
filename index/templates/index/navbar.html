@@ -43,7 +43,7 @@
           </ul>
               {%else%}
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="{% url 'index:create'%}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li><a href="{% url 'index:loging'%}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
               </ul>
               {%endif%}
