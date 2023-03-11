@@ -18,7 +18,16 @@
                     <br/><br/>
                 </div>
 
+                        {% for message in messages%}
 
+                       <div class="alert {{message.tags}} alert-dismissible" role="alert">
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="True">&times;</span>
+                         </button>
+                         &nbsp;{{message}}
+
+                     </div>
+                      {%endfor%}
 
                 <label ><b>Wallet Balance</b></label>
                 <select name="" id="" class="login-input" style="display: block; margin-top:12px ;">
