@@ -32,7 +32,7 @@
             <li {%block data%}class=""{%endblock%}><a href="{% url 'index:data'%}">Buy Data</a></li>
 
               <li {%block cable%}class=""{%endblock%}><a href="{% url 'index:cable'%}">Cable Tv Subscription</a></li>
-            <li><a href="#">Pay for PHCN</a></li>
+            <li {%block phcn%}class=""{%endblock%}><a href="{% url 'index:electric'%}">Pay for PHCN</a></li>
             <li {%block fund%}class=""{%endblock%} ><a href="{% url 'index:fund'%}">Deposit Money</a></li>
             <li><a href="#">Profile</a></li>
         </ul>
